@@ -1,0 +1,378 @@
+<husk:Page
+    x:Class="Avalonia_RA3_Mod__ranslator.Views.Pages.AboutPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fi="clr-namespace:FluentIcons.Avalonia;assembly=FluentIcons.Avalonia"
+    xmlns:husk="https://github.com/d3ara1n/Huskui.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="800"
+    d:DesignWidth="800"
+    IsBackButtonVisible="False"
+    mc:Ignorable="d">
+
+	<ScrollViewer>
+		<StackPanel Margin="24" Spacing="20">
+
+			<!--  Заголовок  -->
+			<TextBlock
+                FontSize="{StaticResource LargeFontSize}"
+                FontWeight="{StaticResource ControlStrongFontWeight}"
+                Text="О программе" />
+
+			<!--  Карточка Информация о приложении  -->
+			<husk:Card>
+				<StackPanel Margin="16" Spacing="16">
+					<StackPanel Orientation="Horizontal" Spacing="12">
+						<Border CornerRadius="6">
+							<fi:SymbolIcon
+                                Margin="8"
+                                FontSize="20"
+                                Foreground="{StaticResource ControlAccentInteractiveBackgroundBrush}"
+                                Symbol="Apps" />
+						</Border>
+						<StackPanel VerticalAlignment="Center">
+							<TextBlock
+                                FontSize="{StaticResource MediumFontSize}"
+                                FontWeight="{StaticResource ControlStrongFontWeight}"
+                                Text="Информация о приложении" />
+							<TextBlock
+                                FontSize="{StaticResource SmallFontSize}"
+                                Foreground="{StaticResource ControlSecondaryForegroundBrush}"
+                                Text="Основные сведения о программе" />
+						</StackPanel>
+					</StackPanel>
+
+					<Grid
+                        Margin="0,8,0,0"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="16"
+                        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                        RowSpacing="12">
+						<TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Название:" />
+						<TextBlock
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding AppName}" />
+
+						<TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Версия:" />
+						<TextBlock
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding AppVersion}" />
+
+						<TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Лицензия:" />
+						<TextBlock
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Text="{Binding License}" />
+
+						<TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Статус:" />
+						<TextBlock
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Text="{Binding AppStatus}" />
+					</Grid>
+
+					<StackPanel
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Spacing="8">
+						<Button
+                            Classes="Primary"
+                            Command="{Binding CheckForUpdatesCommand}"
+                            Content="Проверить обновления"
+                            Theme="{StaticResource OutlineButtonTheme}" />
+					</StackPanel>
+				</StackPanel>
+			</husk:Card>
+
+			<!--  Карточка О Разработчике  -->
+			<husk:Card>
+				<StackPanel Margin="16" Spacing="16">
+					<StackPanel Orientation="Horizontal" Spacing="12">
+						<Border CornerRadius="6">
+							<fi:SymbolIcon
+                                Margin="8"
+                                FontSize="20"
+                                Foreground="{StaticResource ControlAccentInteractiveBackgroundBrush}"
+                                Symbol="Person" />
+						</Border>
+						<StackPanel VerticalAlignment="Center">
+							<TextBlock
+                                FontSize="{StaticResource MediumFontSize}"
+                                FontWeight="{StaticResource ControlStrongFontWeight}"
+                                Text="О разработчике" />
+							<TextBlock
+                                FontSize="{StaticResource SmallFontSize}"
+                                Foreground="{StaticResource ControlSecondaryForegroundBrush}"
+                                Text="Информация о создателе программы" />
+						</StackPanel>
+					</StackPanel>
+
+					<Grid
+                        Margin="0,8,0,0"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="16"
+                        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                        RowSpacing="12">
+						<TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Разработчик:" />
+						<TextBlock
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding DeveloperName}" />
+
+						<TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Компания:" />
+						<TextBlock
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding DeveloperCompany}" />
+
+						<TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Email:" />
+						<TextBlock Grid.Row="2" Grid.Column="1">
+							<HyperlinkButton Command="{Binding OpenEmailCommand}">
+								<TextBlock Text="{Binding DeveloperContact}" />
+							</HyperlinkButton>
+						</TextBlock>
+
+						<TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="GitHub:" />
+						<TextBlock Grid.Row="3" Grid.Column="1">
+							<HyperlinkButton Command="{Binding OpenGitHubCommand}">
+								<TextBlock Text="{Binding GitHubUrl}" />
+							</HyperlinkButton>
+						</TextBlock>
+					</Grid>
+
+					<StackPanel
+                        Margin="0,16,0,0"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal"
+                        Spacing="12">
+						<Button
+                            Padding="12,6"
+                            Classes="Primary"
+                            Command="{Binding OpenGitHubCommand}"
+                            Theme="{StaticResource OutlineButtonTheme}">
+							<StackPanel Orientation="Horizontal" Spacing="6">
+								<fi:SymbolIcon Symbol="Link" />
+								<TextBlock Text="GitHub" />
+							</StackPanel>
+						</Button>
+						<Button
+                            Padding="12,6"
+                            Classes="Primary"
+                            Command="{Binding OpenEmailCommand}"
+                            Theme="{StaticResource OutlineButtonTheme}">
+							<StackPanel Orientation="Horizontal" Spacing="6">
+								<fi:SymbolIcon Symbol="Mail" />
+								<TextBlock Text="Написать Email" />
+							</StackPanel>
+						</Button>
+					</StackPanel>
+				</StackPanel>
+			</husk:Card>
+
+			<!--  Карточка Системная информация  -->
+			<husk:Card>
+				<StackPanel Margin="16" Spacing="16">
+					<StackPanel Orientation="Horizontal" Spacing="12">
+						<Border CornerRadius="6">
+							<fi:SymbolIcon
+                                Margin="8"
+                                FontSize="20"
+                                Foreground="{StaticResource ControlAccentInteractiveBackgroundBrush}"
+                                Symbol="System" />
+						</Border>
+						<StackPanel VerticalAlignment="Center">
+							<TextBlock
+                                FontSize="{StaticResource MediumFontSize}"
+                                FontWeight="{StaticResource ControlStrongFontWeight}"
+                                Text="Системная информация" />
+							<TextBlock
+                                FontSize="{StaticResource SmallFontSize}"
+                                Foreground="{StaticResource ControlSecondaryForegroundBrush}"
+                                Text="Технические характеристики системы" />
+						</StackPanel>
+					</StackPanel>
+
+					<Grid
+                        Margin="0,8,0,0"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="16"
+                        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                        RowSpacing="12">
+						<TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Операционная система:" />
+						<TextBlock
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding OsInfo}" />
+
+						<TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Архитектура:" />
+						<TextBlock
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding Architecture}" />
+
+						<TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Версия .NET:" />
+						<TextBlock
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Text="{Binding DotNetVersion}" />
+
+						<TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="CLR версия:" />
+						<TextBlock
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Text="{Binding ClrVersion}" />
+
+						<TextBlock
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Количество ядер:" />
+						<TextBlock
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Text="{Binding ProcessorCount}" />
+
+						<TextBlock
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Разрядность процессора:" />
+						<TextBlock
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Text="{Binding ProcessorArchitecture}" />
+					</Grid>
+
+					<StackPanel
+                        Margin="0,16,0,0"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal"
+                        Spacing="12">
+						<Button
+                            Padding="12,6"
+                            Classes="Primary"
+                            Command="{Binding RefreshSystemInfoCommand}"
+                            Theme="{StaticResource OutlineButtonTheme}">
+							<StackPanel Orientation="Horizontal" Spacing="6">
+								<fi:SymbolIcon Symbol="ArrowClockwise" />
+								<TextBlock Text="Обновить" />
+							</StackPanel>
+						</Button>
+					</StackPanel>
+				</StackPanel>
+			</husk:Card>
+
+			<!--  Карточка Поддержка  -->
+			<husk:Card>
+				<StackPanel Margin="16" Spacing="16">
+					<StackPanel Orientation="Horizontal" Spacing="12">
+						<Border CornerRadius="6">
+							<fi:SymbolIcon
+                                Margin="8"
+                                FontSize="20"
+                                Foreground="{StaticResource ControlAccentInteractiveBackgroundBrush}"
+                                Symbol="Heart" />
+						</Border>
+						<StackPanel VerticalAlignment="Center">
+							<TextBlock
+                                FontSize="{StaticResource MediumFontSize}"
+                                FontWeight="{StaticResource ControlStrongFontWeight}"
+                                Text="Поддержка и помощь" />
+							<TextBlock
+                                FontSize="{StaticResource SmallFontSize}"
+                                Foreground="{StaticResource ControlSecondaryForegroundBrush}"
+                                Text="Получите помощь и поддержку" />
+						</StackPanel>
+					</StackPanel>
+
+					<Grid
+                        Margin="0,8,0,0"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="16"
+                        RowDefinitions="Auto,Auto,Auto"
+                        RowSpacing="12">
+
+						<TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontWeight="SemiBold"
+                            Foreground="{StaticResource AccentForegroundBrush}"
+                            Text="Сообщить об ошибке:" />
+						<TextBlock Grid.Row="1" Grid.Column="1">
+							<HyperlinkButton Command="{Binding ReportBugCommand}">
+								<TextBlock Text="Создать issue на GitHub" />
+							</HyperlinkButton>
+						</TextBlock>
+					</Grid>
+				</StackPanel>
+			</husk:Card>
+
+		</StackPanel>
+	</ScrollViewer>
+</husk:Page>
